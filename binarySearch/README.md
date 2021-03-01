@@ -11,8 +11,9 @@ At each iteration we calculate the middle index = (start_idx + end_idx) / 2.
 For the first iteration middle = (n - 1 + 0) / 2 = (n - 1) / 2. We take the integer part of this value and check x[middle] == target. 
 If it is, return middle (this is the index at which we have the target value in the array)
 
-If x[middle] > target, we can ignore the lower half of the array and call the binary search method on the top half of the array.
-If x[middle] < target, we can ignore the right half of the array and call the binary search method on the bottom half of the array.
+If x[middle] > target, we can ignore the the right half of the array and call the binary search method on the left half of the array.
+
+If x[middle] < target, we can ignore the left half of the array and call the binary search method on the right half of the array.
 
 This process continues recursively until the target value is found. If the target value is not in the array, then we will arrive at the base case.
 This is the point where the start index > end index. At this point the recursive method can terminate by returning some value (e.g -1).
@@ -21,7 +22,7 @@ In this program, we have adapted the binary search method a little. This method 
 
 binSearch searches for the integer key among the entires x[i], ..., x[j-1] using binary search. The return of the method is the smallest 
 array idx k such that x[k] == key, if key in array. Otherwise return idx k such that the assignment x[k] = key would still keep the
-array sorted (if current elements x[k],...x[j-1] are shifted up to x[k+1],...x[j]).
+array sorted (if current elements x[k],...x[j-1] are shifted up to x[k+1], ..., x[j]).
 
 In this case the base case will return the idx k at which the target value should be in order to keep the array sorted. 
 
