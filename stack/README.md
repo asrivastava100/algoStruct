@@ -51,7 +51,7 @@ myStack[-1]  --- returns the value 4. --- This is the __peek__ method.
 
 myStack.pop() --- State of stack is [3] -- This is the __pop__ method.
 
-len(myStack) --- returns 0 since no elements in the stack at present -- This is the __length__ method.
+len(myStack) --- returns 1 since only one element in the stack at present -- This is the __length__ method.
 
 ### The balanced bracket problem.
 
