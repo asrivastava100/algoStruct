@@ -7,7 +7,7 @@ A doubly linked list consists of a list of 'items' each of which contains:
 
 In addition, we impose the requirement that the linked list should be sorted in ascending order from left to right. 
 
-One main benefit of having a sorted doubly linked list is that we can access the maximum and minimum elements in constant time. This is because these elements occur at the start and end of the list, respectively.
+One benefit of having a sorted doubly linked list is that we can access the maximum and minimum elements in constant time. This is because these elements occur at the start and end of the list, respectively.
 
 ### Sorted Doubly Linked List API (Implemented in SortedDoublyLinkedList.java)
 
