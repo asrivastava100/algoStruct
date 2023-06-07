@@ -43,8 +43,8 @@ class heap():
             self.last_filled_position = 0
             return
         if self.last_filled_position + 1 == self.max_num_of_items:
-            print(f"Heap at Max capacity. Cannot insert item {node}")
-            return
+            raise Exception(f"Heap at Max capacity. Cannot insert item {node}")
+        
         self.heap_array[self.last_filled_position + 1] = node
         self.last_filled_position +=1
         parent_Idx = self.parent(self.last_filled_position)
@@ -84,32 +84,35 @@ class heap():
       for i in range(len(self.heap_array)):
           print_str += f" {self.heap_array[i]} "
       return print_str 
+    
 
-
-heap1 = heap(12)
-print("Heap is empty? ", heap1.is_empty())
-heap1.build_heap([6,3,89,32,5,1,0,-1,-5,7,-9,11,12])
-print("Elements of the heap: ", heap1)
-print("Heap is empty? ", heap1.is_empty())
-print(f"Item {heap1.remove_min()} removed")
-print("Heap after removal: ", heap1)
-print(f"Item {heap1.remove_min()} removed")
-print("Heap after removal: ", heap1)
-heap1.insert(12)
-print("Heap after inserting element 12: ", heap1)
+def test_heap():
+    heap1 = heap(13)
+    print("Heap is empty? ", heap1.is_empty())
+    heap1.build_heap([6,3,89,32,5,1,0,-1,-5,7,-9,11,12])
+    print("Elements of the heap: ", heap1)
+    print("Heap is empty? ", heap1.is_empty())
+    print(f"Item {heap1.remove_min()} removed")
+    print("Heap after removal: ", heap1)
+    print(f"Item {heap1.remove_min()} removed")
+    print("Heap after removal: ", heap1)
+    heap1.insert(-18)
+    print("Heap after inserting element -18: ", heap1)
 
 
 """
 Sample run:
 
-New heap created with capacity 12
+test_heap()
+
+New heap created with capacity 13
 Heap is empty?  True
-Heap at Max capacity. Cannot insert item 12
-Elements of the heap:   -9  -5  1  0  -1  11  3  32  5  7  6  89 
+Elements of the heap:   -9  -5  1  0  -1  11  3  32  5  7  6  89  12 
 Heap is empty?  False
 Item -9 removed
-Heap after removal:   -5  -1  1  0  6  11  3  32  5  7  89  None 
+Heap after removal:   -5  -1  1  0  6  11  3  32  5  7  12  89  None 
 Item -5 removed
-Heap after removal:   -1  0  1  5  6  11  3  32  89  7  None  None 
-Heap after inserting element 12:   -1  0  1  5  6  11  3  32  89  7  12  None 
+Heap after removal:   -1  0  1  5  6  11  3  32  89  7  12  None  None 
+Heap after inserting element -18:   -18  0  -1  5  6  1  3  32  89  7  12  11  None
 """
+
